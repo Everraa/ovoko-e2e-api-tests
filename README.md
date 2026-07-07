@@ -62,6 +62,8 @@ npm run test:report
 
 UI tests using the **Page Object Model**. **Target:** `https://www.ebay.com`
 
+eBay is a public site outside our control — its DOM and selectors can change without notice, so locators may need updates if tests start failing.
+
 ### Setup — install browsers
 
 API tests do not need browsers. For eBay:

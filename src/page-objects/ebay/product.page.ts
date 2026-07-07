@@ -4,12 +4,16 @@ import { TestStep } from '@helpers/test-step';
 import { PageObject } from '@pages/page-object';
 
 export class ProductPage extends PageObject {
+  private actionButton(label: RegExp) {
+    return this.page.locator('main a[role="button"]').filter({ hasText: label });
+  }
+
   get buyItNowButton() {
-    return this.page.getByRole('button', { name: 'Buy It Now', exact: true });
+    return this.actionButton(/^Buy It Now$/);
   }
 
   get addToCartButton() {
-    return this.page.getByRole('button', { name: 'Add to cart', exact: true });
+    return this.actionButton(/^Add to cart$/);
   }
 
   get titleHeading() {
