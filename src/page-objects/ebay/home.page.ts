@@ -9,7 +9,10 @@ export class HomePage extends PageObject {
   }
 
   get searchButton() {
-    return this.page.getByRole('button', { name: 'Search', exact: true });
+    return this.page
+      .locator('header')
+      .locator('button[type="submit"]')
+      .filter({ hasText: /^Search$/ });
   }
 
   @TestStep
